@@ -1,0 +1,74 @@
+Ejercicio 1. ¿Son los comandos umask y chmod comandos internos?
+Sí, los comandos umask y chmod son comandos internos. Los comandos internos son comandos que están incorporados al núcleo de Linux y no requieren la ejecución de un programa externo.
+
+Ejercicio 2: Sea la siguiente lista de archivos: bd.class.php, header.inc.php, install.txt,
+readme.txt, prueba, index.php, mail.class.php
+
+• Muestra los nombres de archivo que terminan en .php.
+ls *.php
+• Muestra los nombres de archivo que tengan la letra e en segunda posición.
+ls -l | grep -E '^.*e.*'
+• Muestra los nombres de archivo cuya primera letra esté comprendida entre a y e.
+ls -l | grep -E '^[a-e].*'
+• Muestra los nombres de archivo que no comienzan por una vocal.
+ls -l | grep -E '^[^aeiou].*'
+• Muestra los nombres de archivo que no terminan en .php.
+ls -l | grep -E '^.*[^.php].*'
+• Muestra los nombres de archivo que no terminan ni con .txt ni con .php.
+ls -l | grep -E '^.*[^.txt.php].*'
+
+
+Ejercicio 3. ¿Cómo se escriben los dos comandos siguientes en la misma línea?
+• $ cd /tmp
+• $ ls -l
+
+cd /tmp && ls -l
+
+Ejercicio 4. Lista todos los procesos del sistema y redirige el resultado a un archivo.
+ps -ef > procesos.txt
+
+Ejercicio 5. Sea el comando who -A, que genera un mensaje de error:
+• Ejecuta el comando redirigiendo los errores a un archivo.
+who -A 2> errores.txt
+• Ejecuta el comando haciendo desaparecer los errores, sin redirigir a un archivo en
+disco.
+who -A 2>&-
+
+
+Ejercicio 6. Ejecuta los comandos siguientes
+• $ touch fic_existe
+• $ chmod 600 fic_existe fic_noexiste
+• Redirija el resultado del comando chmod a un archivo, los errores a otro.
+• Redirija los resultados y los errores del comando a un mismo archivo.
+
+
+
+
+
+Ejercicio 7. ¿Qué hace el comando siguiente?
+• $ ls > resu -l
+El comando ls > resu -l crea un archivo llamado resu y escribe en él la lista de archivos del directorio actual en formato expandido (-l).
+
+Ejercicio 8. Ejecuta los comandos date, who y ls y guarda el resultado de los tres comandos en un archivo (una sola línea de comando).
+date; who; ls >> salida.txt
+
+Ejercicio 9. Ejecuta los comandos date y who -A y almacena el resultado de los dos comandos en un archivo resu (una sola línea de comando). Recuerda: el comando who -A genera un mensaje de error.
+date; who -A | tee resu 2>&1
+
+
+Ejercicio 10. Muestra la lista de procesos paginando el resultado.
+ps -ef | less
+
+Ejercicio 11. Combinando los comandos ps y grep, muestra la lista de los procesos httpd que funcionan en el sistema.
+ps -ef | grep httpd
+
+Ejercicio 12. Combinando los comandos tail y head, muestra la tercera línea del archivo
+/etc/passwd.
+tail -n 3 /etc/passwd | head -n 1
+
+Ejercicio 13. Ejecuta el siguiente comando
+
+• $ touch f2 f1 fic1.txt FIC.c Fic.doc fIc.PDF fic
+• Cuente el número de archivos cuyo nombre contenga la palabra fic. La búsqueda no
+deberá discriminar entre mayúsculas y minúsculas. 
+find . -type f -name "*fic*" | wc -l
