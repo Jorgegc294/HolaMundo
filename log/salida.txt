@@ -1,0 +1,12 @@
+jue 05 oct 2023 09:32:14 CEST
+fic
+fic866866866.log
+fic866866.log
+fic866868.log
+fic866.log
+fic867.log
+fic868.log
+fic.log
+readme.txt
+salida.txt
+typescript
